@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% import 'bootstrap4/form.html' as wtf %}
+
+{% block head %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert alert-danger" role="alert" style="font-family: Trirong, sans-serif;">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %} 
+{% endblock %}
+
+{% block main %}
+    <section style="font-family: Trirong, sans-serif;">  
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="font-effect-shadow-multiple" style="font-family: Sofia, sans-serif; font-size: 60px;">Checkout</h1>
+                    <p>
+                        Thank you for choosing us! Please provide your details below. Your fruit is coming to you soon!
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <form method="POST" action="{{ url_for('main.checkout') }}">
+                        {{ form.csrf_token }}
+                        <div class="form-group">
+                            {{ form.firstname.label(class="form-label") }}
+                            {{ form.firstname(class="form-control") }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.surname.label(class="form-label") }}
+                            {{ form.surname(class="form-control") }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.email.label(class="form-label") }}
+                            {{ form.email(class="form-control") }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.phone.label(class="form-label") }}
+                            {{ form.phone(class="form-control") }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.address.label(class="form-label") }}
+                            {{ form.address(class="form-control") }}
+                        </div>
+                        <br/><br/>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}
+<div class="text-center" style="background: linear-gradient(70deg, #77C3F2, 30%, #99CC33)">
+    <span class="text-info">Zoe's Fruit Garden &copy; 2023</span>
+</div>
+{% endblock %}

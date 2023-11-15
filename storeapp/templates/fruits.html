@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<!-- display fruits for the specific category -->
+<section>
+
+    <div class="text-dark ">
+        <div>
+            <p class="h3 text-dark font-effect-shadow-multiple mb-4" style="font-family: Sofia, sans-serif; font-size: 60px;">Select a fruit from below</p>
+        </div>
+    </div>
+
+    <div class="card-columns" style="font-family:Trirong, sans-serif;">
+        <!-- each fruit is a bootstrap card -->
+        {% for fruit in fruits %}
+        <div class="card">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/'+fruit.image) }}" alt="{{fruit.name}}">
+            <div class="card-body">
+                <h4 class="card-title">{{ fruit.name }}</h4>
+                <h5 class="card-title">A${{ fruit.price }}</h5>
+                <p class="card-text">{{ fruit.description }}</p>
+            </div>
+            <div class="card-footer">
+                <form action="{{ url_for('main.order') }}" method="GET">
+                    <input type="hidden" id="fruit_id" name="fruit_id" value="{{ fruit.id }}"> 
+                    <button class="btn btn-success" type="submit">Add to Shopping Cart</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+{% endblock %}
+
+{% block footer  %}
+<div class="text-center" style="background: linear-gradient(70deg, #77C3F2, 30%, #99CC33)">
+  <span class="text-info">Zoe's Fruit Garden &copy; 2023</span>
+</div>
+{% endblock %}
