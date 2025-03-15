@@ -1,106 +1,109 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Trirong&effect=neon|outline|emboss|shadow-multiple">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="./index.css">
 
-    <title>Zoe's Fruit Garden</title>
-  </head>
+  <!-- Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Sofia|Trirong&effect=neon|outline|emboss|shadow-multiple">
 
-  <body style="background-image: url(https://images.pexels.com/photos/5966651/pexels-photo-5966651.jpeg?cs=srgb&dl=pexels-vanessa-loring-5966651.jpg);">
+  <title>Zoe's Fruit Garden</title>
+</head>
 
-    <!-- putting header inside container will prevent full width navbar -->
+<body style="background-color: #7fad96;">
 
-    <header>
+  <!-- putting header inside container will prevent full width navbar -->
 
-        <!--navbar creates a navigation bar -->
-        <!-- Colours https://getbootstrap.com/docs/4.0/utilities/colors/ -->
+  <header>
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(70deg, #77C3F2, 30%, #99CC33);" >
-            <div class="container" style="font-family:Trirong, sans-serif;">
-                
-                <a href="{{url_for('main.order')}}" class="navbar-brand text-dark">
-                  My Shopping Cart
-                </a>
+    <!--navbar creates a navigation bar -->
+    <!-- Colours https://getbootstrap.com/docs/4.0/utilities/colors/ -->
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
-                    aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button> 
+    <nav class="navbar navbar-expand-lg navbar-light px-3"
+      style="background-color: #9fcabc; width: 100%; position: fixed; top: 0; z-index: 1000">
+      <div class="container-fluid px-5" style="font-family:Trirong, sans-serif; font-size: 23px;">
+        <a href="{{ url_for('main.order') }}" class="navbar-brand text-dark" style="font-size: 25px;">
+          My Shopping Cart
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+          aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <!-- Navbar -->
-                <div class="collapse navbar-collapse" id="navbarToggler">
-                    <div class="navbar-nav ml-auto">
-                        <a class="nav-item text-dark nav-link" href="{{url_for('main.index', _anchor='category_anchor')}}">Home</a>
-
-                        <div class="dropdown">
-                            <a class="nav-item text-dark nav-link dropdown-toggle" data-toggle="dropdown" id="bookDropdown"
-                                aria-haspopup="true" aria-expanded="false" href="{{ url_for('main.index', _anchor='categories_anchor') }}">Categories</a>
-                            <div class="dropdown-menu" aria-labelledby="bookDropdown">
-                                <a class="dropdown-item" href="{{url_for('main.category_fruits', categoryid = 1) }}">Berries</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{url_for('main.category_fruits', categoryid = 2) }}">Citrus</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{url_for('main.category_fruits', categoryid = 3) }}">Tropical Fruits</a>
-                               
-                            </div>
-                        </div>
-
-                        <form class="form-inline my-2 my-lg-0" action="{{ url_for('main.search')}}">
-                          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-
-                    </div>
-                </div>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="{{ url_for('main.index', _anchor='category_anchor') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark"
+                href="{{ url_for('main.index', _anchor='categories_anchor') }}">Categories</a>
+            </li>
+            <li class="nav-item pl-5 pt-1">
+              <form class="form-inline" action="{{ url_for('main.search') }}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search"
+                  style="background: transparent; border-color: #17a2b8; border-width: 2; font-size: 20px;">
+                <button class="btn btn-info" type="submit" style="width: 90px; font-size: 20px;">Search</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
 
-                {% block header %}
-        
-                {% endblock %}
-    </header>
 
-     <!-- main page content goes in container -->
-     <br/>
-     <div class="container">
-        <main>
+    {% block header %}
 
-          {% with messages = get_flashed_messages() %}
-                  {% if messages %}
-                 <div class="alert alert-danger" role="alert" style="font-family:Trirong, sans-serif;">
-                    {% for message in messages %}
-                      {{ message }}
-                    {% endfor %}
-                 </div>
-                  {% endif %}
-                {% endwith %} 
+    {% endblock %}
+  </header>
 
-            {% block main %}
+  <!-- main page content goes in container -->
+  <br />
+  <div class="container">
+    <main>
 
-            {% endblock %}
-        </main>
-    </div>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="alert alert-danger" role="alert" style="font-family:Trirong, sans-serif;">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endwith %}
 
-    <br/>
-    <!-- Footer -->
-    <footer class="footer" style="font-family:Trirong, sans-serif;">
+      {% block main %}
+
+      {% endblock %}
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" style="font-family:Trirong, sans-serif;">
     {% block footer %}
 
     {% endblock %}
-    </footer>
-    <!-- Footer -->
+  </footer>
+  <!-- Footer -->
 
-    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha384-ZvpUoO/+Pw5y+2JmzyEln9+6nx3Qa5N3f1P47bMWLeN5q0Er5O7zYIig/wUyjMFa" crossorigin="anonymous">
+    </script>
 
- </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+    </script>
+
+</body>
 
 </html>

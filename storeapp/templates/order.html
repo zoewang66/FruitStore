@@ -1,52 +1,234 @@
 {% extends 'base.html' %}
 
 {% block main %}
+<style>
+    @media (min-width: 992px) {
+        .h1 {
+            font-size: 60px;
+        }
+
+        .h2 {
+            font-size: 37px;
+        }
+
+        .h3 {
+            font-size: 30px;
+        }
+
+        .btn {
+            font-size: 23px;
+            padding-inline: 15px;
+        }
+
+        .btn-section {
+            margin-bottom: 50px;
+        }
+
+        .footer {
+            font-size: 23px;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .btn-section {
+            flex-direction: row;
+            justify-content: space-between;
+            column-gap: 10px;
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .h1 {
+            font-size: 60px;
+        }
+
+        .h2 {
+            font-size: 37px;
+        }
+
+        .h3 {
+            font-size: 30px;
+        }
+
+        .btn {
+            font-size: 23px;
+            padding-inline: 15px;
+        }
+
+        .footer {
+            font-size: 23px;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .btn-section {
+            flex-direction: row;
+            justify-content: space-between;
+            column-gap: 10px;
+        }
+
+    }
+
+    @media (max-width: 991px) and (min-width: 767px) {
+
+        .h1 {
+            font-size: 40px;
+        }
+
+        .h2 {
+            font-size: 28px;
+        }
+
+        .h3 {
+            font-size: 25px;
+        }
+
+        .btn {
+            font-size: 20px;
+            padding-inline: 13px;
+        }
+
+        .footer {
+            font-size: 20px;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .btn-section {
+            flex-direction: row;
+            justify-content: space-between;
+            column-gap: 10px;
+        }
+    }
+
+    @media (max-width: 765px) and (min-width: 576px) {
+        .h1 {
+            font-size: 40px;
+        }
+
+        .h2 {
+            font-size: 25px;
+        }
+
+        .h3 {
+            font-size: 20px;
+        }
+
+        .btn-section.btn {
+            font-size: 18px;
+            margin-left: 20px;
+        }
+
+        .footer {
+            font-size: 18px;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .btn-section {
+            display: flex;
+            flex-direction: column;
+            row-gap: 6px;
+        }
+    }
+
+    @media (max-width: 575px) {
+
+        .h1 {
+            font-size: 30px;
+        }
+
+        .h2 {
+            font-size: 20px;
+        }
+
+        .h3 {
+            font-size: 14px;
+        }
+
+        .btn {
+            font-size: 14px;
+            padding-inline: 9px;
+        }
+
+
+        .footer {
+            font-size: 15px;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .card {
+            margin-bottom: 6px;
+        }
+
+        .btn-section {
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 10px;
+        }
+
+
+    }
+
+    .btn-section {
+        display: flex;
+        margin-bottom: 30px;
+    }
+</style>
 <!-- display contents of user basket -->
-<section style="font-family:Trirong, sans-serif;">  
+<section style="font-family:Trirong, sans-serif;">
     <div class="container">
         <div class="row co-12 d-flex mt-2 mb-2">
-            <h3 class="font-effect-shadow-multiple" style="font-family: Sofia, sans-serif; font-size: 60px;">Shopping Cart</h3>
+            <h3 class="h1 font-effect-shadow-multiple" style="font-family: Sofia, sans-serif; padding-top: 90px;">
+                Shopping Cart</h3>
         </div>
         <!-- each fruit on separate row -->
         {% for fruit in order.fruit %}
-            <div class="row shadow-md my-row mb-3">
-                <div class="col-sm-10 card">
-                    <h5 class="card-header">{{ fruit.name }}</h5>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-2">
-                                <img class="img-thumbnail" src="{{ url_for('static', filename=('img/' + fruit.image)) }}">
-                            </div>
-                            <div class="col-10">
-                                <!-- Item Description -->
-                                <p class="card-text">{{ fruit.description }}</p>   
-                            </div>  
-                        </div>                      
+        <div class="row shadow-md my-row mb-3">
+            <div class="col-sm-10 card">
+                <h2 class="h2 card-header">{{ fruit.name }}</h2>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-2">
+                            <img class="img-thumbnail" src="{{ url_for('static', filename=('img/' + fruit.image)) }}">
+                        </div>
+                        <div class="col-10">
+                            <!-- Item Description -->
+                            <h3 class="h3 card-text">{{ fruit.description }}</h3>
+                        </div>
                     </div>
                 </div>
-                <br><br>
-                <!-- right column has price and delete button -->
-                <div class="col-sm-2">
-                    <!-- delete item button -->
-                    <h5>{{ "$%.2f"|format(fruit.price) }}</h5>
-                    <form method="POST" action="{{ url_for('main.deleteorderitem') }}">
-                        <input type="hidden" name="id" value="{{ fruit.id }}">
-                        <input type="submit" value="Delete" class="btn btn-success mb-3">
-                    </form> 
-                </div>
             </div>
+            <br><br>
+            <!-- right column has price and delete button -->
+            <div class="col-sm-2">
+                <!-- delete item button -->
+                <h3 class="h3">{{ "$%.2f"|format(fruit.price) }}</h3>
+                <form method="POST" action="{{ url_for('main.deleteorderitem') }}">
+                    <input type="hidden" name="id" value="{{ fruit.id }}">
+                    <input type="submit" value="Delete" class="btn btn-info mb-3">
+                </form>
+            </div>
+        </div>
         {% endfor %}
-        
+
         <!-- total price and page controls -->
         <section style="font-family: Trirong, sans-serif;">
             <div class="row co-12 d-flex">
-                <h5 class="mt-4">Total Price: {{ "$%.2f"|format(totalprice) }}</h5>
+                <h3 class="h3 mt-4">Total Price: {{ "$%.2f"|format(totalprice) }}</h3>
             </div>
-        
-            <div class="row co-12 d-flex mt-2 mb-4">
-                <a href="{{ url_for('main.index', _anchor='categories_anchor') }}" class="btn btn-success mr-4">Search By Category</a>
-                <a href="{{ url_for('main.checkout') }}" class="btn btn-success mr-4">Checkout</a>
-                <a href="{{ url_for('main.deleteorder') }}" class="btn btn-success">Empty Shopping Cart</a>
+
+            <div class="row btn-section co-12 mt-2 ">
+                <a href="{{ url_for('main.index', _anchor='categories_anchor') }}" class="btn btn-info">Search
+                    By Category</a>
+                <a href="{{ url_for('main.checkout') }}" class="btn btn-info">Checkout</a>
+                <a href="{{ url_for('main.deleteorder') }}" class="btn btn-info">Empty Shopping Cart</a>
             </div>
         </section>
     </div>
@@ -54,7 +236,8 @@
 {% endblock %}
 
 {% block footer %}
-<div class="text-center" style="background: linear-gradient(70deg, #77C3F2, 30%, #99CC33)">
-    <span class="text-info">Zoe's Fruit Garden &copy; 2023</span>
+<div class="footer text-center justify-content-center align-self-center pt-2"
+    style="background: linear-gradient(70deg, #9fcabc, 40%, #aed4c1); font-size: 23px; height: 50px;">
+    <span class="text-dark">Zoe's Fruit Garden &copy; 2023</span>
 </div>
 {% endblock %}
