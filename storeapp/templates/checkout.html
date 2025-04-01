@@ -17,6 +17,11 @@
 
 {% block main %}
 <style>
+    .alert {
+        margin-top: 190px;
+        z-index: 1002;
+    }
+
     @media (min-width: 992px) {
         .h1 {
             font-size: 60px;
@@ -37,9 +42,6 @@
 
         .footer {
             font-size: 23px;
-            position: sticky;
-            bottom: 0;
-            width: 100%;
         }
 
     }
@@ -65,9 +67,6 @@
 
         .footer {
             font-size: 20px;
-            position: sticky;
-            bottom: 0;
-            width: 100%;
         }
     }
 
@@ -92,9 +91,6 @@
 
         .footer {
             font-size: 18px;
-            position: sticky;
-            bottom: 0;
-            width: 100%;
         }
     }
 
@@ -118,9 +114,6 @@
 
         .footer {
             font-size: 15px;
-            position: sticky;
-            bottom: 0;
-            width: 100%;
         }
 
         .footer {
@@ -171,11 +164,4 @@
         </div>
     </div>
 </section>
-{% endblock %}
-
-{% block footer %}
-<div class="footer text-center justify-content-center align-self-center pt-2"
-    style="background: linear-gradient(70deg, #9fcabc, 40%, #aed4c1);">
-    <span class="text-dark">Zoe's Fruit Garden &copy; 2023</span>
-</div>
 {% endblock %}
