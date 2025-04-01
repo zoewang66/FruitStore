@@ -37,7 +37,7 @@ pip install email-validator==2.1.0.post1
 pip install gunicorn==21.2.0
 
 #### 3. Run the app
-python app.py
+python run.py
 ```
 📍 Visit `http://localhost:5000` in your browser.
 
