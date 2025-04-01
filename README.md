@@ -25,7 +25,6 @@ Built using **Flask + Bootstrap + SQLite**, this project showcases a full-stack 
 
 ### 🧪 How to Run
 
-```bash
 # 1. Clone the project
 git clone https://github.com/zoewang66/fruit-store.git
 cd fruit-store
