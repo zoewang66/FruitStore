@@ -24,15 +24,11 @@ Built using **Flask + Bootstrap + SQLite**, this project showcases a full-stack 
 ---
 
 ### 🧪 How to Run
-···bash
+```bash
 #### 1. Clone the project
 git clone https://github.com/zoewang66/fruit-store.git
 
-#### 2. (Optional) Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-#### 3. Install dependencies
+#### 2. Install dependencies
 pip install Flask==2.2.5
 pip install Flask-WTF==1.1.1
 pip install WTForms==3.1.1
@@ -40,7 +36,7 @@ pip install Flask-SQLAlchemy==3.0.5
 pip install email-validator==2.1.0.post1
 pip install gunicorn==21.2.0
 
-#### 4. Run the app
+#### 3. Run the app
 python app.py
 ```
 📍 Visit `http://localhost:5000` in your browser.
@@ -58,16 +54,7 @@ This project uses the following Python packages:
 - **email-validator** – Email address validation  
 - **gunicorn** – WSGI server for production deployment
 
-#### To install all dependencies:
-
-```bash
-pip install Flask==2.2.5
-pip install Flask-WTF==1.1.1
-pip install WTForms==3.1.1
-pip install Flask-SQLAlchemy==3.0.5
-pip install email-validator==2.1.0.post1
-pip install gunicorn==21.2.0
-···
+---
 
 ### ✨ What I Learned
 
