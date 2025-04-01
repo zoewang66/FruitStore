@@ -25,18 +25,18 @@ Built using **Flask + Bootstrap + SQLite**, this project showcases a full-stack 
 
 ### 🧪 How to Run
 
-# 1. Clone the project
+#### 1. Clone the project
 git clone https://github.com/zoewang66/fruit-store.git
 cd fruit-store
 
-# 2. (Optional) Create virtual environment
+#### 2. (Optional) Create virtual environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# 3. Install dependencies
+#### 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Run the app
+#### 4. Run the app
 python app.py
 
 📍 Visit `http://localhost:5000` in your browser.
