@@ -24,8 +24,16 @@ Built using **Flask + Bootstrap + SQLite**, this project showcases a full-stack 
 ---
 
 ### Some Pictures of the website
+![Screenshot](storeapp/static/img/screencapture-127-0-0-1-5000-2025-04-02-15_39_02.png)
 
 ![Screenshot](storeapp/static/img/screencapture-127-0-0-1-5000-fruits-2025-04-02-15_39_52.png)
+
+![Screenshot](storeapp/static/img/screencapture-127-0-0-1-5000-order-2025-04-02-15_40_26.png)
+
+![Screenshot](storeapp/static/img/screencapture-127-0-0-1-5000-checkout-2025-04-02-15_41_48.png)
+
+---
+
 ### 🧪 How to Run
 ```bash
 #### 1. Clone the project
